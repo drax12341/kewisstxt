@@ -45,7 +45,11 @@ The HTTP check requires the local server. These cover local links, checksums, pr
 
 Publish this directory's contents at the root of a GitHub repository with a main branch. Preserve .github/workflows/pages.yml and .nojekyll. In Settings > Pages, choose GitHub Actions. No npm install or application build is needed. Relative asset paths support project Pages URLs.
 
-No GitHub repository/account is hardcoded. Public deployment has not been confirmed from this workspace. The existing separately hosted site has not been retired.
+Repository: https://github.com/drax12341/kewisstxt
+
+Website: https://drax12341.github.io/kewisstxt/
+
+Pushes to main run the included checks and publish through GitHub Actions. The separately hosted copy has not been retired.
 
 ## Privacy
 
