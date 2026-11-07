@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" fill="none"><defs><radialGradient id="bh-halo"><stop stop-color="#7059DD" stop-opacity=".55"/><stop offset="1" stop-color="#7059DD" stop-opacity="0"/></radialGradient><linearGradient id="bh-disk" x1="450" y1="185" x2="450" y2="460" gradientUnits="userSpaceOnUse"><stop stop-color="#5043B7"/><stop offset=".45" stop-color="#FF9CB2"/><stop offset="1" stop-color="#423F9C"/></linearGradient><radialGradient id="bh-corona"><stop offset=".79" stop-color="#050718"/><stop offset=".87" stop-color="#FFD2A5"/><stop offset=".92" stop-color="#FFF8D7"/><stop offset="1" stop-color="#BB75F8" stop-opacity="0"/></radialGradient><linearGradient id="bh-foreground" x1="100" y1="330" x2="800" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#9F82FC"/><stop offset=".35" stop-color="#FFCD99"/><stop offset=".65" stop-color="#FFF3C5"/><stop offset="1" stop-color="#A397FF"/></linearGradient></defs>
+<g class="hole-halo"><ellipse cx="450" cy="325" rx="350" ry="246" fill="url(#bh-halo)"/></g>
+<g transform="rotate(-18 450 325)">
+ <ellipse cx="450" cy="324" rx="360" ry="135" fill="#17112E" stroke="#080B21" stroke-width="12"/>
+ <ellipse cx="450" cy="324" rx="350" ry="125" fill="url(#bh-disk)" stroke="#BE8DFF" stroke-width="3"/>
+ <ellipse cx="450" cy="324" rx="306" ry="101" stroke="#FF9CDA" stroke-width="12"/>
+ <ellipse cx="450" cy="324" rx="273" ry="83" stroke="#FFF5CA" stroke-width="4"/>
+ <path d="M114 298C235 204 614 201 774 312" stroke="#E9CAFF" stroke-width="5" stroke-linecap="round"/>
+ <path d="M147 349C278 427 635 426 756 345" stroke="#5FE4FE" stroke-width="7" stroke-linecap="round"/>
+ <circle cx="450" cy="311" r="152" fill="url(#bh-corona)"/>
+ <circle cx="450" cy="311" r="125" fill="#040619" stroke="#080B21" stroke-width="9"/>
+ <path d="M342 254C371 193 461 173 521 211" stroke="#FFF4D5" stroke-width="6" stroke-linecap="round"/>
+ <path d="M345 332C356 389 428 432 493 409" stroke="#8866FA" stroke-width="4" stroke-linecap="round"/>
+ <path d="M103 330C205 381 300 397 450 399C604 399 718 377 797 329" stroke="#090D27" stroke-width="48" stroke-linecap="round"/>
+ <path d="M103 326C204 376 312 392 450 392C597 392 718 373 797 325" stroke="url(#bh-foreground)" stroke-width="30" stroke-linecap="round"/>
+ <path d="M118 326C261 378 631 389 782 324" stroke="#FFF6D6" stroke-width="5" stroke-linecap="round"/>
+ <g class="disk-flow"><path d="M157 347L198 359M249 370L284 377M572 381L613 374M680 357L718 343" stroke="#FFB6EF" stroke-width="7" stroke-linecap="round"/><path d="M214 253L244 243M606 242L642 253" stroke="#B2F7FF" stroke-width="5" stroke-linecap="round"/></g>
+</g>
+<g class="hole-motes" fill="#F5DCFF"><path d="m207 173 4 15 15 4-15 5-4 15-5-15-15-5 15-4z"/><path d="m717 220 3 10 11 3-11 4-3 10-4-10-10-4 10-3z"/><circle cx="683" cy="155" r="4"/><circle cx="243" cy="459" r="4"/></g></svg>

@@ -1,0 +1,1 @@
+(()=>{'use strict';const button=document.getElementById('pixel131-grid'),stage=document.querySelector('.ribbon122-stage');if(!button||!stage)return;button.addEventListener('click',()=>{const on=stage.classList.toggle('pixel131-grid');button.setAttribute('aria-pressed',String(on));button.textContent='Pixel grid: '+(on?'ON':'OFF');});})();

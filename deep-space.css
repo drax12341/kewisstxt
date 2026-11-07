@@ -1,0 +1,145 @@
+/* Deep Space: one panoramic sky, quiet chrome, the pack in full color. */
+:root{--bg:#030810;--panel:#0b1420;--text:#edf3f9;--muted:#97a9bc;--accent:#a7c9e8;--bright:#f4f8fc;--pink:#9cb8d1;--cyan:#a7c9e8;--coral:#a7c9e8;--line:#a7c9e824}
+body.deep-space{background:var(--bg);color:var(--text);color-scheme:dark}
+.deep-space ::selection{background:#517da766}
+.deep-space :is(button,a,select,input,summary):focus-visible{outline:2px solid #c0dfff;outline-offset:5px}
+.deep-space .progress{height:2px;background:#b0cfe9}
+.deep-space .grain,.deep-space .cursor-glow,.deep-space .cursor-ring{display:none}
+.deep-space :is(button,a,input,select){cursor:auto}
+.deep-space :is(button,a,summary){cursor:pointer}
+.deep-space .nav{max-width:1360px;background:#050c16d9;border:1px solid #b4cde023;box-shadow:none;border-radius:12px;backdrop-filter:blur(20px);padding-block:16px}
+.deep-space .nav.scrolled{background:#050c16f2}
+.deep-space .nav nav a{color:#9dafc1;font-size:12px}
+.deep-space .nav nav a:is(:hover,.active){background:#c0dfff0a;color:#f3f8ff}
+.deep-space .space-brand small{color:#8298af}
+.deep-space .space-brand>span:last-child>span{color:#b7ccdf}
+.deep-space .brand-orbit,.deep-space .brand-orbit:after{border-color:#b1c6da66;color:#e6eff7}
+.deep-space .command-key{border-color:#a7c9e82b;color:#9dafc1}
+.deep-space .button{background:#e4edf6;color:#0a1521;border:1px solid #f3f8ff88;box-shadow:none;border-radius:7px;font-weight:700;transition:background .2s,transform .2s}
+.deep-space .button:hover{background:white;box-shadow:0 5px 24px #abcce515;transform:translateY(-1px)}
+.deep-space :is(.control,.tabs button){background:#0a1521;color:#a6bacd;border-color:#a7c9e82b;border-radius:6px}
+.deep-space :is(.control,.tabs button):hover{background:#152537;color:#f2f8ff;border-color:#b4d4f266}
+.deep-space :is(.tabs button,.control)[aria-pressed=true]{background:#adcce91a;color:#eff7ff;border-color:#a7c9e877}
+.deep-space select{background:#08131f;color:#d6e4f0;border-color:#9cbad43b;border-radius:5px}
+.deep-space :is(.lead,.tagline){color:#9eafbf}
+.deep-space h2{color:#eef4fa;font-weight:500;letter-spacing:-.045em}
+.deep-space .eyebrow{color:#8098af;font-size:10px;text-transform:none;letter-spacing:.025em}
+.deep-space .universe-stage{background:#030810 url('assets/deep-space-panorama.png') center/cover no-repeat}
+.deep-space :is(.universe-world,.universe-clouds,.surface-flow,.universe-light){display:none}
+.deep-space .universe-sky{inset:-3%;opacity:1;filter:brightness(var(--starlight,1))}
+.deep-space .universe-sky img{object-position:50% 50%;filter:none}
+.deep-space .universe-stage[data-weather=aurora] .universe-sky{filter:brightness(calc(1.12 * var(--starlight,1))) saturate(.8)}
+.deep-space .universe-stage[data-weather=tempest] .universe-sky{filter:contrast(1.14) brightness(calc(.8 * var(--starlight,1)))}
+.deep-space .universe-backdrop{opacity:.12;filter:none;mask-image:linear-gradient(transparent,#000 30%,#000 60%,transparent)}
+.deep-space #orbitStars{opacity:.3}
+.deep-space #heroStarfield{opacity:.65}
+.deep-space .space-hero{display:block;min-height:820px;height:100svh;max-height:1080px;padding:clamp(170px,24vh,260px) max(6vw,24px) 110px;isolation:isolate}
+.deep-space .space-hero .universe-hero{opacity:1;filter:none;transition:filter 1s}
+.deep-space .space-hero[data-mood=ice] .universe-hero{filter:brightness(1.15) saturate(.7)}
+.deep-space .space-hero[data-mood=ember] .universe-hero{filter:brightness(.85) saturate(.3)}
+.deep-space .space-hero .hero-bg,.deep-space .orbital-grid{display:none}
+.deep-space .space-hero .hero-shade{background:linear-gradient(90deg,#030810a6,transparent 76%),linear-gradient(0deg,#030810,transparent 25%,transparent 75%,#03081033)}
+.deep-space .space-hero .hero-content{max-width:740px;position:relative;z-index:4;padding:0}
+.deep-space .space-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(72px,7.8vw,126px);font-weight:500;line-height:1.02;letter-spacing:-.075em;color:#f1f6fc;max-width:780px;margin:0 0 30px;text-shadow:0 3px 40px #02070f44}
+.deep-space .space-hero h1 span{background:none;color:inherit;-webkit-text-fill-color:currentColor}
+.deep-space .space-hero .signal{font-size:11px;letter-spacing:.025em;color:#acc0d2;margin-bottom:28px}
+.deep-space .signal i{background:#bcd4e8;box-shadow:0 0 8px #c8e4ff44;animation:none}
+.deep-space .signal>span{color:#8297ab;border-color:#a7c9e82b}
+.deep-space .space-hero .tagline{font-size:15px;line-height:1.85;max-width:410px;margin-bottom:30px;color:#aabaca}
+.deep-space .hero-buttons{gap:26px;align-items:center}
+.deep-space .space-hero .button.big{font-size:12px;padding:18px 24px}
+.deep-space .hero-secondary{color:#d0dce7;font-size:12px}
+.deep-space .space-hero .hero-meta{color:#7f96ac;font-size:10px;margin-top:22px}
+.deep-space .hero-crew-links{border-color:#a7c9e81f;margin-top:32px;padding-top:22px;max-width:410px;gap:28px}
+.deep-space .hero-crew-links a{color:#c1cfdb;font-size:11px}
+.deep-space .hero-crew-links small{color:#738ca3}
+.deep-space .mini-star{color:#bad1e4;text-shadow:none}
+/* The creators remain interactive, with the full portraits in the crew section. */
+.deep-space .hero-hangar{position:absolute;min-height:0;width:275px;height:100px;right:max(6vw,24px);bottom:100px;margin:0;perspective:none;z-index:4}
+.deep-space :is(.orbit-track,.pilot-aura,.shared-core,.hangar-caption,.hero-hangar .firework-launch){display:none}
+.deep-space .scene-coordinate{position:absolute;top:-24px;left:0;right:auto;font-size:10px;letter-spacing:0;color:#8da3b7}
+.deep-space .hero-hangar .hero-pilot{position:absolute;width:128px;height:100px;top:0;rotate:0;left:0;right:auto;overflow:hidden;border-radius:8px;border:1px solid #b7cde026;background:#07121d91;transition:background .2s}
+.deep-space .hero-hangar .hero-pilot.kewisdis{left:140px}
+.deep-space .hero-pilot img{width:64px;height:auto;animation:none;filter:none;position:absolute;top:10px;left:0;opacity:.9}
+.deep-space .hero-pilot .pilot-tag{position:absolute;left:12px;right:auto;bottom:9px;transform:none;background:#07121ded;border:0;border-radius:3px;font-size:10px;padding:5px 7px;color:#d5e3f0}
+.deep-space .pilot-tag i{display:none}
+.deep-space .hero-pilot:hover{background:#132638}
+.deep-space .hero-pilot:hover img{translate:none;filter:none}
+.deep-space .hero-switch{bottom:38px;right:max(6vw,24px)}
+.deep-space .hero-switch>button{background:#08121ec9;border-color:#a7c9e82b;color:#aec4d8}
+.deep-space .universe-bar{max-width:1240px;padding:26px 0;gap:20px;background:none;border-color:#a7c9e81f}
+.deep-space .universe-kicker{text-transform:none;letter-spacing:.025em;color:#7892aa;font-size:11px}
+.deep-space .universe-bar p{font-size:22px;font-weight:400;color:#d0e0ee;margin-top:6px}
+.deep-space .universe-bar output{color:#8ca7bd;font-size:11px;min-height:0}
+.deep-space .universe-bar output:empty{display:none}
+.deep-space .universe-actions .button{background:transparent;color:#d9e6f1;border-color:#a7c9e84d}
+.deep-space .universe-actions .control{background:transparent;border-color:transparent;color:#8ca4ba}
+.deep-space .sky-settings{max-width:1240px;margin:auto;border-bottom:1px solid #a7c9e81f}
+.deep-space .sky-settings>summary{padding:18px 0;color:#b7cada;font-size:12px;list-style-position:inside;min-height:50px}
+.deep-space .sky-settings>summary span{float:right;color:#6f899f;font-size:11px}
+.deep-space .cosmic-controls{max-width:none;padding:20px 0 30px;border:0}
+.deep-space .cosmic-heading h2{font-size:26px}
+.deep-space .cosmic-heading p,.deep-space .cosmic-controls output{color:#8ba2b8}
+.deep-space :is(.cosmic-settings,.viewer-weather) label{color:#94abc0}
+.deep-space :is(.cosmic-settings,.viewer-weather) select{background:#091521;border-color:#a7c9e82b}
+.deep-space .orbit-manifest{display:none}
+.deep-space .stats{max-width:1240px;margin:0 auto;padding:52px 0;border-bottom:1px solid #a7c9e81f}
+.deep-space .stats b{color:#d5e3f0;font-weight:400}
+.deep-space .stats span{color:#728ba2}
+.deep-space .stats>div{border-color:#a7c9e824}
+.deep-space .section{max-width:1240px;padding:100px 0;margin:auto}
+.deep-space .section h2{font-size:clamp(32px,4vw,52px)}
+.deep-space :is(.tile,.texture-studio,.window,.model-wrap,.game,.timeline article){background:#08111dd9;border-color:#a7c9e824;box-shadow:none;border-radius:9px}
+.deep-space .tile{padding:30px}
+.deep-space :is(.tile p,.timeline p,.story-step p,.palette-row p){color:#8b9fb3}
+.deep-space .tile .chip{background:none;border-color:#a7c9e82b;color:#92acc2;font-size:9px;font-weight:500}
+.deep-space :is(.tile-wide,.tile-flame){background:#0a1521e8}
+.deep-space .feature-tags span{background:#9dbfdb08;border-color:#9dbfdb20;color:#adc2d3}
+.deep-space .swatch-orbit{filter:saturate(.45)}
+.deep-space .reveal{opacity:1;transform:none;transition:none}
+.deep-space :is(.texture-toolbar,.texture-toolbar.bottom,.deck-controls,.window-bar,.flight-config){background:#0a1623}
+.deep-space .texture-stage{background:radial-gradient(ellipse at 50% 45%,#243d521f,transparent 70%),#040b13;min-height:480px}
+.deep-space :is(.texture-toolbar label,.palette-row label,.deck-controls label,.flight-config label,.space-settings label){color:#99afc2}
+.deep-space :is(.texture-studio .note,.stage-meta span,.loadout-actions output){color:#7e99b1}
+.deep-space .deck-presets>button{background:#091521;border-color:#a7c9e824;border-radius:7px}
+.deep-space .deck-presets span{color:#cfdfed}
+.deep-space :is(.deck-presets small,.deck-presets i){color:#7895ac}
+.deep-space .palette-row{border-color:#a7c9e824}
+.deep-space .crew-heading>p:last-child,.deep-space .crew-info p{color:#8ca5ba}
+.deep-space .crew-card,.deep-space .crew-card.ember-card{background:#0a1421;border-color:#a7c9e824;--crew-color:#a7c9e8}
+.deep-space .crew-planet{background:url('assets/deep-space-panorama.png') 85% 70%/cover no-repeat;opacity:.3;border-radius:50%;width:360px;height:360px;top:6%}
+.deep-space .crew-info{background:linear-gradient(transparent,#08111df2)}
+.deep-space :is(.crew-id,.timeline small,.story-step small,.drag-hint){color:#809db5}
+.deep-space :is(.window-bar span,.foot p,.foot a,.design-credit){color:#8ba3b9}
+.deep-space .timeline article.latest{border-color:#a7c9e866;background:#112234}
+.deep-space .timeline article.latest small{color:#c8dceb}
+.deep-space .steps li,.deep-space .download-panel{background:#08131f;border-color:#a7c9e824}
+.deep-space .space-settings{background:#091521;border-color:#a7c9e824}
+.deep-space .space-settings p{color:#839db4}
+.deep-space .cta{background:linear-gradient(90deg,#030810dd,#03081033),url('assets/deep-space-panorama.png') 50% 45%/cover no-repeat;border-color:#a7c9e824;padding:100px 24px}
+.deep-space .cta-universe{display:none}
+.deep-space .giant{color:#b8d3e909;letter-spacing:-.07em}
+.deep-space footer{background:linear-gradient(transparent,#030810)}
+.deep-space .universe-viewer{background:#030810f5;backdrop-filter:blur(20px)}
+.deep-space .viewer-top{background:#030810f2}
+.deep-space .viewer-window{background:#030810;border-color:#a7c9e83b;box-shadow:none}
+.deep-space .viewer-frame{color:#b6d0e5}
+.deep-space .viewer-locations button{background:#08131f;border-color:#a7c9e824;color:#69869f;border-radius:5px}
+.deep-space .viewer-locations span{color:#a5bfd3}
+.deep-space .viewer-locations button[aria-pressed=true]{background:#182c3f;border-color:#a7c9e877}
+.deep-space .viewer-locations button[aria-pressed=true] span{color:#f1f7fc}
+.deep-space :is(.viewer-caption p,.viewer-caption output,.viewer-top kbd){color:#8faac0}
+.deep-space .nav.open nav{background:#06111ff7;border-color:#a7c9e83b}
+.deep-space .intro{background:#030810;color:#d0e1ef}
+.deep-space .command-box{background:#08131f;border-color:#a7c9e84d}
+.deep-space-lab{--ink:#edf3f9;--accent-rgb:167,201,232;--highlight:#c8dff3;font-family:Manrope,sans-serif}
+.deep-space-lab .nav{height:auto;min-height:85px;max-width:none;padding:20px}
+.deep-space-lab .lab-home{background:#a7c9e80c;border-color:#a7c9e83b;color:#b4cde2}
+.deep-space-lab :is(.preview,.combat-stage,.settings-panel,.storm135-preview){background:#09131f;border-color:#a7c9e82b}
+.deep-space-lab .surface136 button{background:#182c3f;border-color:#a7c9e84d}
+.deep-space-lab .surface136 select{background:#08131f;border-color:#a7c9e83b;color:#d1e2f0}
+@media(min-width:1650px){.deep-space .space-hero{padding-left:max(6vw,calc((100vw - 1240px)/2));padding-right:max(6vw,calc((100vw - 1240px)/2))}}
+@media(max-width:1350px){.deep-space :is(.section,.stats,.universe-bar,.sky-settings){margin-inline:6vw}.deep-space .section{padding-block:80px}}
+@media(max-width:960px){.deep-space .space-hero{min-height:760px;height:90svh;max-height:1000px;padding-top:190px}.deep-space .hero-hangar{bottom:85px;right:6vw}.deep-space .hero-crew-links{margin-top:22px}.deep-space .texture-stage{min-height:420px}}
+@media(max-width:760px){.deep-space .nav{padding:12px 15px}.deep-space .space-hero{min-height:840px;height:auto;padding:160px 24px 220px}.deep-space .space-hero h1{font-size:clamp(65px,12.5vw,94px);letter-spacing:-.065em;line-height:1.03;margin-bottom:26px}.deep-space .space-hero .signal{font-size:10px;gap:8px;flex-wrap:wrap;margin-bottom:24px}.deep-space .signal>span{font-size:9px}.deep-space .space-hero .tagline{font-size:13px;max-width:340px}.deep-space .space-hero .hero-buttons{gap:20px;flex-wrap:wrap}.deep-space .space-hero .button.big{padding:16px 19px;font-size:11px}.deep-space .hero-secondary{font-size:11px}.deep-space .hero-crew-links{max-width:360px;gap:20px}.deep-space .hero-crew-links small{display:none}.deep-space .hero-hangar{left:24px;right:auto;bottom:65px;width:275px;height:100px}.deep-space .hero-switch{right:24px;bottom:24px}.deep-space .space-hero .hero-shade{background:linear-gradient(90deg,#030810a6,#03081022),linear-gradient(0deg,#030810,transparent 45%,#03081011)}.deep-space .universe-hero .universe-sky img{object-position:61% 50%}.deep-space .universe-bar{padding:26px 0;gap:22px}.deep-space .universe-actions .button{width:auto;flex:1}.deep-space .universe-actions .control{flex:auto}.deep-space .universe-actions{gap:8px}.deep-space .universe-bar p{font-size:21px}.deep-space .sky-settings>summary span{display:none}.deep-space .cosmic-controls{padding:10px 0 24px}.deep-space .stats{padding:32px 0;gap:24px}.deep-space .section{padding:64px 0}.deep-space .section h2{font-size:34px}.deep-space :is(.section,.stats,.universe-bar,.sky-settings){margin-inline:24px}.deep-space .tile{padding:24px}.deep-space .texture-stage{min-height:340px}.deep-space .crew-planet{width:240px;height:240px}.deep-space .cta{padding:75px 24px}.deep-space .viewer-locations button{min-height:48px}.deep-space .viewer-window{min-height:280px}.deep-space .viewer-top h2{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.deep-space .button{transition:none}.deep-space .button:hover{transform:none}.deep-space .universe-hero{transition:none}}

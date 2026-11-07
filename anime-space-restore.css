@@ -1,0 +1,77 @@
+/* Restore the authored interactions while retaining the blue space palette. */
+.anime-restored{--bg:#050b1b;--panel:#0c192d;--cyan:#9adfff;--accent:#bdd6f5;--coral:#d19cb8}
+.anime-restored .grain{display:block;opacity:.018}
+.anime-restored .cursor-ring,.anime-restored .cursor-glow{display:block}
+.anime-restored .cursor-ring{left:-15px;top:-15px;width:30px;height:30px;border-color:#b7ddffb3;z-index:290;transition:width .18s,height .18s,left .18s,top .18s,border-color .18s,background .18s;box-shadow:0 0 18px #8abfff22}
+.anime-restored .cursor-ring:after{content:'';position:absolute;width:4px;height:4px;left:50%;top:50%;translate:-50% -50%;border-radius:50%;background:#e1f2ff;box-shadow:0 0 9px #9edaff}
+.anime-restored .cursor-ring:before{content:'';position:absolute;inset:-5px;border:1px solid transparent;border-top-color:#b0d6ff88;border-bottom-color:#b0d6ff44;border-radius:50%;animation:cursor-orbit 5s linear infinite}
+.anime-restored .cursor-glow{z-index:1;background:radial-gradient(circle,#8bbfff1c,transparent 62%)}
+.anime-restored.cursor-hover .cursor-ring{width:46px;height:46px;left:-23px;top:-23px;border-color:#e8f5ff;background:#c9e6ff0d}
+.anime-restored.cursor-pressed .cursor-ring{width:22px;height:22px;left:-11px;top:-11px;background:#c9e6ff28}
+.anime-restored[data-cursor=precision] .cursor-ring{border-radius:3px;border-color:#a7d7ff77;width:24px;height:24px;left:-12px;top:-12px}
+.anime-restored[data-cursor=precision] .cursor-ring:before{inset:8px -6px;border-radius:0;border:0;border-top:1px solid #ccecff;animation:none}
+.anime-restored[data-cursor=native] :is(.cursor-ring,.cursor-glow),.anime-restored:not(.cursor-ready) .cursor-ring{display:none}
+.anime-restored:not(.cursor-ready) .cursor-glow{opacity:0!important}
+.anime-restored :is(.button,.control,.tabs button,.tile,.hero-pilot,.crew-card){transition:border-color .25s,background .25s,box-shadow .3s,transform .3s}
+.anime-restored .button.magnetic{position:relative;overflow:hidden;transform:translate(var(--bx,0px),var(--by,0px));box-shadow:0 0 25px #7cc8ff14}
+.anime-restored .button.magnetic:hover{box-shadow:0 0 36px #9dd7ff33}
+.anime-restored .tile{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));background:radial-gradient(circle at var(--px,50%) var(--py,30%),#70b5e911,transparent 55%),#08152aee}
+.anime-restored .tile:hover{border-color:#9dd9ff66;box-shadow:0 16px 65px #0004}
+.js .anime-restored .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .anime-restored .reveal.in{opacity:1;transform:translateY(0)}
+.js .anime-restored .tile.reveal.in{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.anime-restored .space-hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:16px;min-height:900px;height:auto;max-height:none;padding-top:180px;padding-bottom:120px}
+.anime-restored .space-hero .hero-content{max-width:650px}
+.anime-restored .space-hero h1{font-size:clamp(70px,7vw,108px);max-width:680px}
+.anime-restored .hero-hangar{position:relative;left:auto;right:auto;bottom:auto;top:auto;width:100%;height:auto;min-height:540px;margin:0;perspective:1000px;z-index:4;overflow:visible}
+.anime-restored :is(.orbit-track,.pilot-aura,.shared-core,.hangar-caption,.hero-hangar .firework-launch){display:block}
+.anime-restored .orbit-one{width:470px;height:160px;left:50%;top:62%;border-color:#9ed6ff30}
+.anime-restored .orbit-two{width:400px;height:420px;left:50%;top:50%;border-color:#a7cfff20}
+.anime-restored .hero-hangar .hero-pilot{position:absolute;top:85px;left:-5%;right:auto;width:255px;height:auto;rotate:-8deg;border:0;border-radius:0;overflow:visible;background:transparent}
+.anime-restored .hero-hangar .hero-pilot.kewisdis{top:25px;left:auto;right:-6%;width:240px;rotate:10deg}
+.anime-restored .hero-pilot img{position:relative;left:auto;top:auto;width:100%;height:auto;opacity:1;filter:drop-shadow(0 0 24px #8ecbff33);animation:pilot-float 7s ease-in-out infinite}
+.anime-restored .hero-pilot.kewisdis img{animation-delay:-3s;filter:drop-shadow(0 0 24px #d591b52b)}
+.anime-restored .hero-pilot:hover img{translate:0 -10px;filter:drop-shadow(0 0 30px #a7dbff66)}
+.anime-restored .hero-pilot .pilot-tag{position:relative;left:auto;right:auto;bottom:auto;padding:10px 15px;font-size:11px;background:#081528d9;border:1px solid #b2ddff44;border-radius:6px;translate:10px -22px;transform:none;color:#dcf0ff}
+.anime-restored .pilot-tag i{display:block;color:#88a8c1;font-size:9px}
+.anime-restored .scene-coordinate{left:auto;right:0;top:-15px;letter-spacing:.06em;font-size:10px;color:#8fb1cf}
+.anime-restored .hangar-caption{bottom:-15px;font-size:10px;color:#abc4da}
+.anime-restored .shared-core{display:grid;width:54px;height:54px;left:45%;top:41%;box-shadow:0 0 50px #76c8ff33}
+.anime-restored .hero-hangar .firework-launch{display:grid;position:absolute;bottom:18px;left:50%;translate:-50% 0;min-width:215px;padding:12px 18px;background:#09182de8;border:1px solid #b2d8f14d;color:#d4eaff;border-radius:6px;font-size:11px;z-index:5}
+.anime-restored .hero-hangar .firework-launch small{color:#8aa9c2}
+.anime-restored .universe-stage{background:#050b1b url('assets/anime-space-sky.webp') center/cover no-repeat}
+.anime-restored :is(.universe-world,.universe-clouds,.universe-light){display:block}
+.anime-restored .universe-world{opacity:.78}
+.anime-restored .universe-clouds{opacity:.42;filter:sepia(.85) hue-rotate(165deg) saturate(.8)}
+.anime-restored .universe-world{filter:sepia(.85) hue-rotate(165deg) saturate(.8)}
+.anime-restored .surface-flow{display:block;opacity:0}
+.anime-restored .surface-flow.flow-ready{opacity:1}
+.anime-restored .universe-hero .universe-world{width:62%;right:-17%;top:7%}
+.anime-restored .universe-hero .universe-clouds{bottom:-24%;height:100%;width:112%;left:-6%}
+.anime-restored .universe-hero .universe-light{opacity:.3;background:radial-gradient(ellipse at 76% 38%,#7dcaff22,transparent 48%)}
+.anime-restored .space-hero .hero-shade{background:linear-gradient(90deg,#050b1bbf,#050b1b66 40%,#050b1b22 85%),linear-gradient(0deg,#050b1b,transparent 30%)}
+.anime-restored .sky-settings{border-color:#a8cfff33}
+.anime-restored .sky-settings>summary{font-size:13px;color:#bbd7ef}
+.anime-restored .cosmic-controls{padding-block:24px 32px}
+.anime-restored .universe-art-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.anime-restored .universe-art-actions .control{font-size:11px;min-height:40px}
+.anime-restored .journey-sky>img{transition:opacity 1.8s ease,object-position 1.8s ease;filter:saturate(.82)}
+.anime-restored .journey-sky:after{background:linear-gradient(90deg,#050b1bba,#050b1b7a 40%,#050b1b22 80%,#050b1b44)}
+.anime-restored .journey-sky[data-sky=home]>[data-sky-image=home],.anime-restored .journey-sky[data-sky=rings]>[data-sky-image=rings],.anime-restored .journey-sky[data-sky=horizon]>[data-sky-image=horizon]{opacity:.84}
+.anime-restored .cta{background:linear-gradient(90deg,#050b1baa,#050b1b44),url('assets/anime-space-horizon.webp') center/cover}
+.anime-restored .crew-planet{background-image:url('assets/anime-space-rings.webp')}
+.anime-restored .crew-card,.anime-restored .crew-card.ember-card{background:linear-gradient(0deg,#08131ffa,#08131fbb),url('assets/anime-space-rings.webp') 80% center/cover}
+.space-gallery-frame{flex:1;min-height:0;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#050b1b;border-radius:6px}
+.space-gallery .space-gallery-frame img{width:100%;height:100%;min-height:0;object-fit:contain;transform:scale(var(--gallery-zoom,1));transform-origin:var(--gallery-x,50%) var(--gallery-y,50%);transition:transform .8s ease,transform-origin .8s ease}
+.gallery-focus{display:flex;gap:8px;flex-wrap:wrap}
+.gallery-focus button{font-size:11px;min-height:40px}
+@keyframes cursor-orbit{to{rotate:360deg}}
+@media(max-width:1100px){.anime-restored .space-hero{grid-template-columns:1.05fr .95fr;min-height:850px}.anime-restored .space-hero h1{font-size:clamp(66px,7.8vw,89px)}.anime-restored .hero-hangar{min-height:470px}.anime-restored .hero-hangar .hero-pilot{width:215px;left:-6%;top:90px}.anime-restored .hero-hangar .hero-pilot.kewisdis{width:205px;right:-10%;top:35px}.anime-restored .orbit-one{width:390px}.anime-restored .orbit-two{width:330px;height:360px}}
+@media(max-width:760px){.anime-restored .space-hero{display:block;padding:155px 24px 105px;min-height:0}.anime-restored .space-hero h1{font-size:clamp(66px,12vw,90px)}.anime-restored .hero-hangar{position:relative;left:auto;right:auto;bottom:auto;width:min(430px,100%);min-height:455px;margin:55px auto 0}.anime-restored .hero-hangar .hero-pilot{width:220px;top:65px;left:-3%}.anime-restored .hero-hangar .hero-pilot.kewisdis{width:205px;top:5px;right:-5%}.anime-restored .scene-coordinate{top:-20px}.anime-restored .hero-hangar .firework-launch{bottom:0}.anime-restored .hangar-caption{bottom:-28px}.anime-restored .universe-hero .universe-world{width:145%;right:-55%;top:30%}.anime-restored .universe-hero .universe-clouds{height:65%;bottom:-7%;width:160%;left:-25%}.anime-restored .hero-switch{bottom:25px}.anime-restored .universe-art-actions{width:100%}.anime-restored .universe-art-actions .control{flex:1}.anime-restored .sky-settings>summary{font-size:12px}}
+.anime-restored.motion-off :is(.cursor-ring,.cursor-glow){display:none}.anime-restored.motion-off .hero-pilot img{animation:none}.anime-restored.motion-off .tile{transform:none}.js .anime-restored.motion-off .reveal{opacity:1;transform:none}.anime-restored.motion-off .space-gallery-frame img{transition:none}
+.universe-paused.anime-restored .hero-pilot img{animation-play-state:paused}.space-gallery-open.anime-restored .cursor-ring{display:none}
+@media(prefers-reduced-motion:reduce){.anime-restored :is(.cursor-ring,.cursor-glow){display:none}.anime-restored .hero-pilot img,.anime-restored .cursor-ring:before{animation:none}.anime-restored .hero-pilot:hover img{translate:none}.js .anime-restored .reveal{opacity:1;transform:none}.anime-restored .tile{transform:none}.anime-restored .space-gallery-frame img{transition:none}}
+
+.js .anime-restored.motion-off .tile.reveal.in{transform:none}
+@media(pointer:coarse){.anime-restored :is(.cursor-ring,.cursor-glow){display:none}}
+@media(prefers-reduced-motion:reduce){.js .anime-restored .tile.reveal.in{transform:none}}

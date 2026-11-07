@@ -1,0 +1,76 @@
+/* The whole page is a journey: bright detail in the margins and open views between tools. */
+.deep-space .journey-sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#030810}
+.journey-sky>img{position:absolute;inset:-4%;width:108%;height:108%;max-width:none;object-fit:cover;object-position:62% 50%;opacity:0;transform:translateY(var(--journey-shift,0px));transition:opacity 1.2s ease;will-change:opacity}
+.journey-sky[data-sky=home]>[data-sky-image=home],.journey-sky[data-sky=rings]>[data-sky-image=rings],.journey-sky[data-sky=horizon]>[data-sky-image=horizon]{opacity:.78}
+.journey-sky[data-location=textures]>img{object-position:75% 45%}.journey-sky[data-location=inspect]>img{object-position:40% 60%}.journey-sky[data-location=faq]>img{object-position:85% 35%}
+.journey-sky:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#030810bc,#03081088 35%,#03081026 78%,#03081055)}
+.deep-space .universe-backdrop{display:none}
+.deep-space #orbitStars{opacity:.6}
+.deep-space .section{isolation:isolate}
+.deep-space .section>h2,.deep-space .section>.lead,.deep-space .crew-heading{position:relative;text-shadow:0 2px 20px #020810}
+.deep-space .section>.lead{max-width:650px;color:#b4c5d5}
+.deep-space :is(.tile,.texture-studio,.window,.model-wrap,.game,.timeline article){background:#07121eea;border-color:#b9d9ef33;box-shadow:0 12px 50px #0003}
+.deep-space .texture-stage{background:radial-gradient(ellipse at center,#18314555,transparent 70%),#040b13db}
+.deep-space .crew-card,.deep-space .crew-card.ember-card{background:linear-gradient(0deg,#08131ffa,#08131fd1),url('assets/deep-space-rings.webp') 80% center/cover}
+.deep-space footer{background:linear-gradient(transparent,#03081088)}
+.sector-detail{position:absolute;inset:-30px -130px 0;z-index:-1;overflow:hidden;pointer-events:none;color:#c2def0}
+.sector-chart{position:absolute;width:440px;height:500px;right:-55px;top:16px;opacity:.43;rotate:-9deg}
+.sector-satellite{position:absolute;width:145px;right:10px;top:380px;opacity:.8;filter:drop-shadow(0 8px 20px #0008);transform:translateY(var(--object-shift,0px))}
+.sector-detail-textures .sector-chart{right:auto;left:-170px;top:160px;width:370px;opacity:.35;rotate:30deg}
+.sector-detail-textures .sector-satellite{right:-10px;top:120px;width:160px;rotate:12deg}
+.sector-detail-crew .sector-chart{top:50%;right:-110px;width:430px;rotate:23deg}
+.sector-detail-versions .sector-chart{right:auto;left:-90px;top:-50px;width:510px;opacity:.26;rotate:60deg}
+.sector-detail-showcase .sector-chart{right:-120px;top:-90px;width:550px}
+.sector-detail-inspect .sector-satellite{right:auto;left:-50px;top:50px;width:150px;rotate:-16deg}
+.sector-detail-play .sector-chart{right:auto;left:-140px;top:40%;width:500px;rotate:55deg}
+.sector-detail-install .sector-satellite{top:0;right:5%;width:130px}
+.sector-detail-faq .sector-chart{top:60px;right:-100px;width:550px;rotate:-40deg}
+.sector-dust{position:absolute;inset:0;background-image:radial-gradient(circle at 10% 15%,#c6e4ff 0 1px,transparent 1.8px),radial-gradient(circle at 85% 55%,#bdd9ef 0 1px,transparent 2px),radial-gradient(circle at 30% 70%,#e8f4ff 0 .6px,transparent 1.4px);background-size:173px 227px,283px 191px,137px 313px;opacity:.3;mask-image:linear-gradient(90deg,#000,transparent 40%,transparent 60%,#000)}
+.space-vista{position:relative;isolation:isolate;min-height:660px;margin:50px 0 80px;overflow:hidden;background:#07101c;border-block:1px solid #a7c9e83b}
+.vista-image{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.vista-image img{width:100%;height:100%;object-fit:cover;object-position:var(--vista-x,50%) var(--vista-y,50%);transform:scale(var(--vista-zoom,1));transform-origin:var(--vista-x,50%) var(--vista-y,50%);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),transform-origin 1.2s ease,object-position 1.2s ease}
+.space-vista:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(0deg,#030810f2 0%,#03081077 22%,transparent 52%),linear-gradient(180deg,#03081066,transparent 25%)}
+.vista-orbit{position:absolute;inset:8%;border:1px solid #d0e8f31a;border-radius:50%;transform:rotate(-18deg) scaleX(1.15);pointer-events:none}
+.vista-orbit:after{content:'';position:absolute;left:14%;top:15%;width:5px;height:5px;background:#e3f4ff;border-radius:50%;box-shadow:0 0 14px #e1f4ff}
+.vista-caption{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;max-width:1240px;margin:0 auto;padding:430px 0 0;pointer-events:none}
+.vista-caption>div,.vista-caption>button{pointer-events:auto}
+.vista-eyebrow{font-size:11px;letter-spacing:.02em;color:#abc2d3;margin:0 0 12px}
+.vista-caption h2{font-size:clamp(38px,4.5vw,64px);font-weight:400;letter-spacing:-.05em;color:#eef6fc;margin:0 0 14px;text-shadow:0 2px 20px #0008}
+.vista-caption p:last-child{font-size:13px;line-height:1.7;color:#acc2d4;max-width:430px;margin:0}
+.vista-open{padding:14px 19px;background:#06121dd9!important;display:inline-flex;gap:25px;align-items:center;white-space:nowrap;font-size:12px;backdrop-filter:blur(12px)}
+.vista-views{display:flex;gap:8px;flex-wrap:wrap;max-width:1240px;margin:25px auto 24px}
+.vista-views button{color:#a6bdcf;border:1px solid #c4deef33;background:#07131dc9;padding:9px 14px;font:11px Manrope,sans-serif;border-radius:5px;cursor:pointer}
+.vista-views button:hover,.vista-views button[aria-pressed=true]{color:#f3f9ff;border-color:#c4deef88;background:#223c4ddb}
+.journey-route{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:15;display:grid;gap:15px;opacity:0;visibility:hidden;transition:opacity .3s}
+body[data-space-past-hero=true] .journey-route{opacity:1;visibility:visible}
+.journey-route a{display:flex;justify-content:flex-end;align-items:center;gap:12px;font:10px Manrope,sans-serif;color:#849db1;min-height:24px}
+.journey-route a span{opacity:0;translate:5px 0;transition:opacity .2s,translate .2s;background:#030810b3;padding:4px 7px;border-radius:3px}
+.journey-route a i{width:5px;height:5px;border:1px solid #9cb7cb99;border-radius:50%;transition:box-shadow .3s}
+.journey-route a:hover span,.journey-route a:focus-visible span,.journey-route a[aria-current=location] span{opacity:1;translate:0}
+.journey-route a[aria-current=location]{color:#d5e9f6}
+.journey-route a[aria-current=location] i{background:#d3edff;box-shadow:0 0 12px #b3dfff99}
+.universe-viewing .journey-route{visibility:hidden!important}
+.space-gallery{position:fixed;inset:0;width:calc(100% - 48px);height:calc(100dvh - 48px);max-width:1600px;max-height:none;padding:24px 28px;background:#040c15;color:#e4eff8;border:1px solid #9fc5df55;border-radius:12px;box-sizing:border-box;overflow:auto}
+.space-gallery:not([open]){display:none}
+.space-gallery[open]{display:flex;flex-direction:column;gap:18px}
+.space-gallery::backdrop{background:#02060eea;backdrop-filter:blur(16px)}
+.space-gallery-open{overflow:hidden}
+.space-gallery-open .journey-route{visibility:hidden!important}
+.space-gallery-top{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.space-gallery-top p{font:11px Manrope,sans-serif;color:#8eaabd;margin:0 0 6px}
+.space-gallery h2{font-size:27px;font-weight:400;letter-spacing:-.035em;margin:0}
+.space-gallery-top button{display:flex;align-items:center;gap:22px;min-height:44px}
+.space-gallery kbd{font-size:10px;color:#8ca7bb;font-family:inherit}
+.space-gallery figure{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:14px;margin:0}
+.space-gallery figure img{height:100%;width:100%;object-fit:contain;min-height:0;flex:1;background:#020810;border-radius:6px}
+.space-gallery figcaption{font:12px/1.6 Manrope,sans-serif;color:#92adbf;align-self:flex-start}
+.space-gallery-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.space-gallery-bottom>div{display:flex;gap:10px;flex-wrap:wrap}
+.space-gallery-bottom p{font:11px Manrope,sans-serif;color:#708fa6;margin:0}
+.deep-space .cta{background:linear-gradient(90deg,#030810b3,#03081033),url('assets/deep-space-horizon.webp') 50% 75%/cover;padding-block:125px}
+@media(min-width:1700px){.space-vista{min-height:760px}.vista-caption{padding-top:525px}}
+@media(max-width:1500px){.journey-route{right:10px}.journey-route a span{display:none}.sector-detail{inset-inline:-60px}.vista-caption,.vista-views{margin-inline:6vw}}
+@media(max-width:1100px){.journey-route{display:none}.sector-chart{opacity:.3;width:360px}.sector-satellite{width:110px!important;opacity:.55}.space-vista{min-height:590px}.vista-caption{padding-top:350px}.vista-caption h2{font-size:46px}}
+@media(max-width:760px){.journey-sky>img{object-position:70% center}.journey-sky>[data-sky-image=horizon]{object-position:15% center}.journey-sky:after{background:linear-gradient(90deg,#0308109c,#03081055 65%,#03081022)}.sector-detail{inset:-10px -24px;overflow:hidden}.sector-chart{width:320px!important;height:370px;right:-120px!important;left:auto!important;top:100px;opacity:.27}.sector-satellite{top:40px!important;right:-20px!important;left:auto!important;width:95px!important;opacity:.4}.sector-dust{opacity:.25}.space-vista{min-height:650px;margin:25px 0 45px}.vista-image img{object-position:var(--vista-x,70%) var(--vista-y,50%)}#vista-horizon .vista-image img{object-position:var(--vista-x,25%) var(--vista-y,50%)}.vista-caption{padding-top:390px;margin-inline:24px;display:block}.vista-caption h2{font-size:41px;line-height:1.1;margin-bottom:12px}.vista-caption p:last-child{font-size:12px;max-width:290px}.vista-open{margin-top:20px;min-height:44px}.vista-views{margin:20px 24px;gap:7px}.vista-views button{font-size:10px;padding:10px 12px;min-height:40px}.vista-orbit{inset:12% -25%;opacity:.6}.space-gallery{width:calc(100% - 20px);height:calc(100dvh - 20px);padding:18px 16px;gap:16px}.space-gallery h2{font-size:23px}.space-gallery-top p{font-size:10px}.space-gallery-top button{gap:10px;padding:10px;font-size:11px}.space-gallery kbd{display:none}.space-gallery figure{min-height:220px}.space-gallery figcaption{font-size:11px}.space-gallery-bottom{align-items:flex-start;flex-direction:column}.space-gallery-bottom p{font-size:10px}.space-gallery-bottom .control{min-height:44px;font-size:11px}.deep-space .cta{padding-block:100px}}
+.motion-off .journey-sky>img{transform:none;transition:none}.motion-off .sector-satellite{transform:none}.motion-off .vista-image img{transition:none}
+@media(prefers-reduced-motion:reduce){.journey-sky>img{transition:none;transform:none}.vista-image img,.journey-route,.journey-route a span{transition:none}.sector-satellite{transform:none}}

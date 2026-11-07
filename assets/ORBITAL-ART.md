@@ -1,0 +1,9 @@
+# Retired Orbital artwork history
+
+The following prompt records the earlier `orbital-nebula.png`, which was generated with the built-in image-generation tool. It has been retired from the public website and preserved in the workspace under `build/cartoon-cosmos/retired/`. The current website uses the SVG/canvas illustrations documented in `ILLUSTRATED-COSMOS.md`.
+
+Final prompt:
+
+> Use case: stylized-concept. Asset type: cinematic deep-space background for a custom Minecraft player website named KewissTxT. Generate an original ultra-wide landscape 2:1 panoramic scene, NO text, NO logos, NO characters, NO interface. A sweeping painterly photoreal nebula of glacial cyan and electric blue on the left and molten coral orange cosmic dust on the right, meeting in a thin atmospheric violet bridge. Deep ink-black negative space in the upper and middle LEFT third so pale website typography can be laid over it. A detailed small dark rocky planet with a razor-thin cyan rim sits off-center to the right; fragments of glowing crystalline meteor rock drift at far right and bottom right. Tiny rich multiscale stars, a few luminous comet filaments, subtle cosmic fireworks radiating very far in background. Dramatic volumetric dust, premium science-fiction game launch artwork, restrained brilliance and deep contrast, real astronomical scale with detailed texture, sophisticated composition, no pixel art, no moons over forests, no generic purple gradient. All important objects within central 70% so image crops responsively. This is a pure decorative backdrop behind separate original player skins and website controls.
+
+`draxion-skin.png` and `kewisdis-skin.png` are the user's supplied skin renders. They were copied without changing their pixels. Draxion is the white/cyan skin; Kewisdis is the dark/red skin. Channel URLs were supplied by the user; no channel statistics or video metadata are asserted.

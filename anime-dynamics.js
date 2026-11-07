@@ -1,0 +1,36 @@
+/* Flowing paint, orbiting ring light and cloud auroras. Original artwork stays beneath every live layer. */
+(()=>{'use strict';
+const ASSETS={world:'anime-ringed-world.png',clouds:'anime-cloud-horizon.png',sky:'anime-universe-sky.png'};
+const makeCanvas=(width,height)=>{const canvas=typeof document==='undefined'?new OffscreenCanvas(width,height):document.createElement('canvas');canvas.width=width;canvas.height=height;return canvas;};
+const sourceImage=async file=>{if(typeof document==='undefined'){const response=await fetch('assets/'+file);if(!response.ok)throw Error('Artwork load failed');return createImageBitmap(await response.blob());}return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src='assets/'+file;});};
+const clamp=(n,a,b)=>n<a?a:n>b?b:n,smooth=(a,b,n)=>{const t=clamp((n-a)/(b-a),0,1);return t*t*(3-2*t);};
+class Renderer{
+ constructor({compact=innerWidth<640,assets={},skyCenter=[.69,.17],resolution=1}={}){this.assets={...ASSETS,...assets};this.skyCenter=skyCenter;this.resolution=resolution;this.compact=compact;this.ready=false;this.mode='canvas-flow';this.frames=new Map();this.renders=0;this.failed=false;this.loaded=this.load();}
+ async load(){try{await Promise.all(Object.entries(this.assets).map(async([kind,file])=>{const image=await sourceImage(file);const width=Math.round((kind==='world'?(this.compact?448:768):(this.compact?640:960))*this.resolution),height=Math.round(width*image.height/image.width),canvas=makeCanvas(width,height);const g=canvas.getContext('2d',{willReadFrequently:true});if(!g)throw new Error('Canvas unavailable');g.drawImage(image,0,0,width,height);const source=g.getImageData(0,0,width,height).data;g.clearRect(0,0,width,height);const output=g.createImageData(width,height),field=this.field(kind,width,height,source);this.frames.set(kind,{canvas,g,source,output,...field,key:''});}));this.ready=true;return true;}catch{this.failed=true;return false;}}
+ field(kind,w,h,source){
+  const indices=[],vx=[],vy=[],alpha=[],swirl=[],definition=kind==='world'?[.35,.44,.17,.19]:kind==='sky'?[this.skyCenter[0],this.skyCenter[1],.19,.23]:[.73,.77,.19,.19],centerX=definition[0]*w,centerY=definition[1]*h,radiusX=definition[2]*w,radiusY=definition[3]*h;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+   const i=(y*w+x)*4;if(source[i+3]<25)continue;const u=x/w,v=y/h;let mask=0,dx=0,dy=0;
+   if(kind==='world'){const qx=(u-.5)*1.5/.37,qy=(v-.515)/.37,r=Math.hypot(qx,qy),px=(u-.5)*1.5,py=v-.44,ex=px*.943-py*.333,ey=px*.333+py*.943,ring=Math.hypot(ex/.69,ey/.085);mask=(1-smooth(.83,.985,r))*smooth(.08,.3,Math.abs(ring-.92))*.93;dx=(.018+.012*Math.sin(v*38))*w;dy=.004*h*Math.cos(u*20);}
+   else if(kind==='clouds'){mask=smooth(.10,.70,source[i+3]/255)*.86;dx=w*(.035+.016*Math.sin(v*24));dy=h*.013*Math.sin(u*17);}
+   else{const sx=(u-this.skyCenter[0])*1.4,sy=v-this.skyCenter[1],r=Math.hypot(sx,sy),vortex=1-smooth(.11,.29,r),nebula=smooth(.4,.7,v)*.22;mask=Math.max(vortex*.94,nebula);if(u<.48&&v<.4)mask=0;dx=w*.007;dy=h*.005*Math.sin(u*12);}
+   if(mask<.015)continue;indices.push(i);vx.push(dx);vy.push(dy);alpha.push(Math.round(mask*source[i+3]));swirl.push(1-smooth(.2,1,Math.hypot((x-centerX)/radiusX,(y-centerY)/radiusY)));
+  }
+  return{indices:new Uint32Array(indices),vx:new Float32Array(vx),vy:new Float32Array(vy),alpha:new Uint8ClampedArray(alpha),swirl:new Float32Array(swirl),centerX,centerY,radiusX,radiusY};
+ }
+ render(kind,time,{weather='aurora',speed=1,aurora=0,frameClock=time}={}){
+  if(!this.ready||!this.frames.has(kind))return null;
+  const f=this.frames.get(kind),fps=this.compact?12:15,key=[Math.floor(frameClock*fps),weather,speed,kind==='clouds'&&aurora>0?1:0].join(':');if(f.key===key)return f.canvas;f.key=key;
+  const w=f.canvas.width,h=f.canvas.height,src=f.source,out=f.output.data,clock=Math.max(0,Number.isFinite(time)?time:0)*speed,power=weather==='tempest'?1.45:weather==='quiet'?.42:1,angle=clock*(kind==='sky'?.045:kind==='world'?.15:.085),co=Math.cos(angle),si=Math.sin(angle),wind=Math.sin(clock*.16),maxX=w-1.001,maxY=h-1.001;
+  for(let n=0;n<f.indices.length;n++){
+   const at=f.indices[n],pixel=at/4,x=pixel%w,y=(pixel/w)|0,qx=(x-f.centerX)/f.radiusX,qy=(y-f.centerY)/f.radiusY,mix=f.swirl[n],xx=clamp(x+((qx*co-qy*si)*f.radiusX+f.centerX-x)*mix+f.vx[n]*wind*power,0,maxX),yy=clamp(y+((qx*si+qy*co)*f.radiusY+f.centerY-y)*mix+f.vy[n]*wind*power,0,maxY),ix=xx|0,iy=yy|0,fx=xx-ix,fy=yy-iy,i=(iy*w+ix)*4,i1=i+4,i2=i+w*4,i3=i2+4,a0=(1-fx)*(1-fy)*src[i+3],a1=fx*(1-fy)*src[i1+3],a2=(1-fx)*fy*src[i2+3],a3=fx*fy*src[i3+3],a=a0+a1+a2+a3;
+   out[at]=a?(src[i]*a0+src[i1]*a1+src[i2]*a2+src[i3]*a3)/a:src[at];out[at+1]=a?(src[i+1]*a0+src[i1+1]*a1+src[i2+1]*a2+src[i3+1]*a3)/a:src[at+1];out[at+2]=a?(src[i+2]*a0+src[i1+2]*a1+src[i2+2]*a2+src[i3+2]*a3)/a:src[at+2];out[at+3]=f.alpha[n];
+  }
+  f.g.putImageData(f.output,0,0);if(kind==='world')this.rings(f.g,w,h,clock,weather);if(kind==='clouds')this.aurora(f.g,w,h,clock,weather,aurora);this.renders++;return f.canvas;
+ }
+rings(g,w,h,time,weather){g.save();const count=this.compact?27:48,cx=w*.5,cy=h*.44,rx=w*.46,ry=h*.085,tilt=-.34,co=Math.cos(tilt),si=Math.sin(tilt);for(let i=0;i<count;i++){const a=i/count*Math.PI*2+time*.18,radial=.95+.045*Math.sin(i*12.7),x=Math.cos(a)*rx*radial,y=Math.sin(a)*ry*radial,px=cx+x*co-y*si,py=cy+x*si+y*co,inDisc=Math.hypot((px-w*.5)/(h*.37),(py-h*.515)/(h*.37))<1;if(inDisc&&Math.sin(a)>0)continue;g.globalAlpha=(.28+.4*(.5+.5*Math.sin(i*4.1+time*.6)))*(weather==='quiet'?.5:1);g.strokeStyle=i%4===0?'#fff2e1':i%2?'#f4c4ff':'#a9c9ff';g.lineWidth=i%9===0?1.4:.7;g.beginPath();for(let j=0;j<5;j++){const angle=a-j*.009,xx=Math.cos(angle)*rx*radial,yy=Math.sin(angle)*ry*radial,qx=cx+xx*co-yy*si,qy=cy+xx*si+yy*co;j?g.lineTo(qx,qy):g.moveTo(qx,qy);}g.stroke();if(i%9===0){g.fillStyle='#fff3fa';g.beginPath();g.arc(px,py,1.1,0,Math.PI*2);g.fill();}}g.restore();}
+aurora(g,w,h,time,weather,wave){const strength=weather==='quiet'?.1:weather==='tempest'?.24:.16;g.save();g.globalCompositeOperation='source-atop';g.filter='blur('+Math.max(3,w/120)+'px)';for(let band=0;band<3;band++){g.beginPath();for(let i=0;i<=40;i++){const u=i/40,y=h*(.92-u*.37+Math.sin(u*9+time*.12+band)*.023+band*.035);i?g.lineTo(u*w,y):g.moveTo(u*w,y);}for(let i=40;i>=0;i--){const u=i/40,y=h*(.92-u*.37+Math.sin(u*9+time*.12+band)*.023+band*.035+.07+.02*Math.sin(u*17+time*.17));g.lineTo(u*w,y);}g.closePath();const glow=g.createLinearGradient(0,h*.4,0,h);glow.addColorStop(0,'rgba(116,222,255,0)');glow.addColorStop(.5,band%2?'rgba(188,155,255,.7)':'rgba(128,233,255,.7)');glow.addColorStop(1,'rgba(248,164,223,0)');g.globalAlpha=(strength+wave*.28)*(.8+.2*Math.sin(time*.3+band));g.fillStyle=glow;g.fill();}if(weather==='tempest'){const pulse=Math.pow(Math.max(0,Math.sin(time*.48)),9)*.07;g.globalAlpha=pulse;g.fillStyle='#e8caff';g.fillRect(0,h*.5,w,h*.5);}g.restore();}
+ getState(){return{ready:this.ready,failed:this.failed,mode:this.mode,compact:this.compact,renders:this.renders,cachedFrames:this.frames.size,activePixels:[...this.frames.values()].reduce((sum,f)=>sum+f.indices.length,0)};}
+}
+globalThis.KewissAnimeDynamics=Object.freeze({Renderer});if(typeof window!=='undefined')window.KewissAnimeDynamics=globalThis.KewissAnimeDynamics;
+})();

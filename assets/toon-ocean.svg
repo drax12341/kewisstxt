@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" fill="none"><defs><linearGradient id="ocean-body" x1="90" y1="90" x2="355" y2="365" gradientUnits="userSpaceOnUse"><stop stop-color="#B8F4FF"/><stop offset=".35" stop-color="#47BCED"/><stop offset="1" stop-color="#4266C4"/></linearGradient><clipPath id="ocean-clip"><circle cx="220" cy="220" r="157"/></clipPath></defs>
+<circle cx="222" cy="220" r="190" fill="#43C3EB" fill-opacity=".09"/><circle cx="220" cy="220" r="163" fill="url(#ocean-body)" stroke="#0A1534" stroke-width="11"/>
+<g clip-path="url(#ocean-clip)"><path d="M78 152L125 136 146 156 165 154 174 183 155 204 176 227 152 256 122 250 103 277 78 250 61 196ZM233 74L268 81 276 102 312 105 331 131 318 157 338 179 319 204 279 202 265 225 233 212 228 183 244 163 219 146 219 120 199 102ZM275 274L304 263 332 275 347 301 332 334 308 343 280 323 258 310Z" fill="#92E7C4" stroke="#339EBC" stroke-width="4" stroke-linejoin="round"/>
+<path d="M126 91C92 155 89 226 119 292C145 344 211 379 275 377" stroke="#9AE9FF" stroke-width="26" stroke-opacity=".24"/>
+<path d="M116 123H167M284 170H352M99 281H171M243 296H283M205 111H235" stroke="#E2FAFF" stroke-width="9" stroke-linecap="round"/>
+<path d="M284 50C249 130 264 195 317 229C357 260 344 331 290 374L414 410V38Z" fill="#102969" fill-opacity=".44"/></g>
+<path d="M103 164C115 127 141 100 172 88" stroke="#E1FBFF" stroke-width="8" stroke-linecap="round"/>
+<path d="m368 65 4 15 15 4-15 5-4 15-5-15-15-5 15-4z" fill="#C6F6FF"/><circle cx="54" cy="342" r="4" fill="#C6F6FF"/></svg>
